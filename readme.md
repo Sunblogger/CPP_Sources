@@ -3,11 +3,11 @@ German version [below](#deutsche-version).
 
 Several C ++ classes that I reuse in my projects are stored in these directories.
 
-Directory [inifile] (https://github.com/Sunblogger/CPP_Sources/tree/main/inifile): Reading of ini files (text-based). This can be used to read configuration files for programs.
+Directory [inifile](https://github.com/Sunblogger/CPP_Sources/tree/main/inifile): Reading of ini files (text-based). This can be used to read configuration files for programs.
 
-Directory [logfile] (https://github.com/Sunblogger/CPP_Sources/tree/main/logfile): Writing of log files to record the status of the program.
+Directory [logfile](https://github.com/Sunblogger/CPP_Sources/tree/main/logfile): Writing of log files to record the status of the program.
 
-Directory [stopfile] (https://github.com/Sunblogger/CPP_Sources/tree/main/stopfile): Reading a stop file, the existence of which indicates to a program that it should terminate. A content can also be specified in the stop file, which must be present in order to terminate the program.
+Directory [stopfile](https://github.com/Sunblogger/CPP_Sources/tree/main/stopfile): Reading a stop file, the existence of which indicates to a program that it should terminate. A content can also be specified in the stop file, which must be present in order to terminate the program.
 
 Sample programs that show how the classes are used are also stored in the directories.
 
