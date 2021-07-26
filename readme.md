@@ -1,7 +1,7 @@
 German version [below](#deutsche-version).
 # Purpose of the programs
 
-Several C ++ classes that I reuse in my projects are stored in these directories.
+Several C++ classes that I reuse in my projects are stored in these directories.
 
 Directory [inifile](https://github.com/Sunblogger/CPP_Sources/tree/main/inifile): Reading of ini files (text-based). This can be used to read configuration files for programs.
 
