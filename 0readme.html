@@ -1,0 +1,801 @@
+<!doctype html>
+<html id="mdhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title>Markdown preview</title>
+    <style>body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+}
+
+@font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-smi,
+.markdown-body .pl-s .pl-s1 {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-s,
+.markdown-body .pl-pds,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sre,
+.markdown-body .pl-sr .pl-sra {
+  color: #032f62;
+}
+
+.markdown-body .pl-v,
+.markdown-body .pl-smw {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.markdown-body .pl-c2::before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: bold;
+  color: #22863a;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: bold;
+  color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.markdown-body .pl-mb {
+  font-weight: bold;
+  color: #24292e;
+}
+
+.markdown-body .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+  font-weight: bold;
+  color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+}
+
+.markdown-body strong {
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr::before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body .octicon {
+  vertical-align: text-bottom;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0 !important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px !important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px !important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px !important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px !important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px !important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px !important;
+}
+
+.markdown-body::before {
+  display: table;
+  content: "";
+}
+
+.markdown-body::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  float: left;
+  padding-right: 4px;
+  margin-left: -20px;
+  line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 1px;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #d5d5d6;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+  font-style: italic;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: solid 1px #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: 0.875em;
+}
+
+.markdown-body h6 {
+  font-size: 0.85em;
+  color: #6a737d;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: 0.25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #f1f1f1;
+  border: 1px solid #cecece;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f1f1f1;
+  border: 1px solid #cecece;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: solid 1px #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.2em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}</style>
+  </head>
+  <body>
+    <article class="markdown-body">
+      <p data-sourcepos="1:1-1:42">German version <a href="#deutsche-version">below</a>.</p>
+<h1 data-sourcepos="3:1-3:24">Purpose of the program</h1>
+<p data-sourcepos="5:1-6:73">With this program it is possible to call up updates to a Telegram chat and to save the updates as individual text files. The text files then reflect the content of the chat and the updates are then deleted in Telegram. Updates can therefore only be called up and saved once.
+The program is designed so that it can run as a daemon (systemd service).</p>
+<h1 data-sourcepos="8:1-8:28">How does the program work?</h1>
+<p data-sourcepos="10:1-11:210">The program uses a chat ID and a token from a bot to read updates from Telegram and then save them as a text file. The updates come back from Telegram as JSON results and text files are then built from these JSON results. After querying the updates, Telegram is informed by means of an update counter which update ID was queried last so that Telegram deletes all old updates.
+While the program is running, various information is recorded in a log file. This log file can be helpful when looking for errors. The log file has the same name as the program and has the extension <code>.log</code>.</p>
+<h1 data-sourcepos="13:1-13:12">Parameters</h1>
+<p data-sourcepos="14:1-14:74">In order to use the program, these parameters must be given with the call:</p>
+<p data-sourcepos="16:1-16:128">Chat ID + token of the bot: The chat ID is given together with the token of the bot. Both values are separated with a colon ':'.</p>
+<p data-sourcepos="18:1-20:57">Number of repetitions of the call: If the value = 0, the call is repeated until the program is stopped. The program can be stopped as follows:
+a) The program regularly searches for a so-called stop file. If the program finds this stop file, it will terminate. The stop file has the same name as the executable program plus a <code>.stop</code> suffix. This file can easily be created with a touch command: <code>touch /home/pi/telegram_check_updates/telegram_check_updates.stop</code>
+b) The simple but not so nice variant is to press Ctrl-C.</p>
+<p data-sourcepos="22:1-22:327">Waiting time between 2 calls in 0.1 seconds: This is an integer value from 1. Please note that the program does not make a new call exactly after the specified waiting time, but only &quot;sleeps&quot; this waiting time after processing a call. This was easier to implement than having to wait an exact wait regardless of the processing.</p>
+<p data-sourcepos="24:1-24:256">Directory for saving the text files: By default, the text files are saved in the current directory. Here you can specify the directory in which the files are to be stored. The user under whom the program is started must have write access to this directory.</p>
+<p data-sourcepos="26:1-26:150">Example # 1: An update should only be fetched and stored once. The update should be stored in the directory <code>/home/pi/</code>. The call looks like this:</p>
+<pre data-sourcepos="27:1-29:3"><code>./telegram_check_updates 123456:ABCDEFGE_gjklpoiuztr 1 1 /home/pi/
+</code></pre>
+<p data-sourcepos="31:1-31:190">Example # 2: You should try 10 times to get updates and wait 5 seconds between calls. The same directory where the program is located should be used as the directory for storing the updates:</p>
+<pre data-sourcepos="32:1-34:3"><code>./telegram_check_updates 123456:ABCDEFGE_gjklpoiuztr 10 50
+</code></pre>
+<h1 data-sourcepos="35:1-35:23">Updates as text files</h1>
+<p data-sourcepos="37:1-37:74">The text files created by the program have these conventions for the name:</p>
+<pre data-sourcepos="38:1-40:3"><code>&lt;year&gt;&lt;month&gt;&lt;day&gt;_&lt;time&gt;_&lt;random number with 4 digits&gt;.txt
+</code></pre>
+<p data-sourcepos="41:1-41:56">The content of the file has 3 lines and looks like this:</p>
+<pre data-sourcepos="42:1-48:3"><code>Name: messages_from_chat
+ 
+Chat ID: &lt;the ID of the chat&gt;
+ 
+Message: &lt;text that was entered in the chat&gt;
+</code></pre>
+<h1 data-sourcepos="50:1-50:29">How is the program created?</h1>
+<p data-sourcepos="52:1-54:61">The program is written in C++. The make file called makefile can be used to create an executable program from the source code.
+Note that this program uses C++ classes I created that I built for general purposes. These classes are also used in other programs. I have these C++ classes in the <code>/home/pi/cpp_sources</code> directory. The makefile also looks for these classes in it.
+The current version of the files is stored in the repository.</p>
+<p data-sourcepos="56:1-56:95">The program has only been tested on the Raspberry Pi. But it should also work on another Linux.</p>
+<h1 data-sourcepos="58:1-58:14">Sample files</h1>
+<p data-sourcepos="60:1-60:91">The directory <code>samples</code> contains examples of what the files with the updates look like.</p>
+<h1 data-sourcepos="62:1-62:9">Outlook</h1>
+<p data-sourcepos="64:1-64:239">The program will be integrated into my program <a href="https://github.com/Sunblogger/message2action">message2action</a>. With this integration, there is no need to store and read in text files. It is then possible to process the data in the memory.</p>
+<h1 data-sourcepos="65:1-65:18">Deutsche Version</h1>
+<h1 data-sourcepos="67:1-67:21">Zweck der Programme</h1>
+<p data-sourcepos="69:1-69:103">In diesen Verzeichnissen sind mehrere C++-Klassen abgelegt, die ich in meinen Projekten wiederverwende.</p>
+<p data-sourcepos="71:1-71:187">Verzeichnis <a href="https://github.com/Sunblogger/CPP_Sources/tree/main/inifile">inifile</a>: Lesen von ini-Dateien (textbasiert). Damit können Konfigurationsdateien für Programme gelesen werden.</p>
+<p data-sourcepos="73:1-73:147">Verzeichnis <a href="https://github.com/Sunblogger/CPP_Sources/tree/main/logfile">logfile</a>: Schreiben von Log-Dateien, um Status vom Programm festzuhalten.</p>
+<p data-sourcepos="75:1-75:289">Verzeichnis <a href="https://github.com/Sunblogger/CPP_Sources/tree/main/stopfile">stopfile</a>: Lesen einer Stop-Datei, deren Existenz einem Programm anzeigt, dass es sich beenden soll. Es kann auch ein Inhalt in der Stop-Datei festgelegt werden, der vorhanden sein muss, um das Programm zu beenden.</p>
+<h1 data-sourcepos="77:1-77:32">Wie funktioniert das Programm?</h1>
+<p data-sourcepos="79:1-80:234">Das Programm nutzt eine Chat-ID und einen Token eines Bots, um Updates aus Telegram auszulesen und dann als Text-Datei abzuspeichern. Die Updates kommen als JSON-Ergebnisse von Telegram zurück und aus diesen JSON-Ergebnissen werden dann Textdateien aufgebaut. Nach dem Abfragen der Updates wird Telegram mittels eines Update-Counters mitgeteilt, welche Update-ID als letztes abgefragt wurde so dass Telegram alle alten Updates löscht.
+Während das Programm läuft, werden verschiedene Informationen in einer Log-Datei mitgeschrieben. Diese Logdatei kann hilfreich sein, wenn man Fehler sucht. Die Log-Datei heißt genauso wie das Programm und hat die Endung <code>.log</code>.</p>
+<h1 data-sourcepos="82:1-82:11">Parameter</h1>
+<p data-sourcepos="83:1-83:73">Um das Program zu nutzen, sind diese Parameter mit dem Aufruf mitzugeben:</p>
+<p data-sourcepos="85:1-85:138">Chat-ID + Token des Bot: Die Chat-ID wird zusammen mit dem Token des Bot angegeben. Beide Werte werden mit einem Doppelpunkt ':' getrennt.</p>
+<p data-sourcepos="87:1-89:72">Anzahl an Wiederholungen des Abrufes: Bei einem Wert=0 wird so lange der Abruf wiederholt, bis das Programm gestoppt wird. Das Programm kann wie folgt gestoppt werden:
+a) Das Programm sucht regelmässig nache einer sogenannten Stop-Datei. Findet das Programm diese Stop-Datei, so beendet es sich. Die Stop-Datei heißt genauso wie das ausführbare Programm plus ein Suffix '.stop'. Diese Datei kann einfach mit einem touch-Befehl erzeugt werden: touch /home/pi/telegram_check_updates/telegram_check_updates.stop
+b) Die einfache aber nicht so schöne Variante ist, Strg-C zu drücken.</p>
+<p data-sourcepos="91:1-91:372">Wartezeit zwischen 2 Abrufen in 0.1 Sekunden: Das ist ein ganzzahliger Wert ab 1. Es ist zu beachten, dass das Programm nicht exakt nach der angegebenen Wartezeit einen neuen Aufruf durchführt sondern erst nach Verarbeitung eines Abrufs diese Wartezeit &quot;schläft&quot;. Dies war einfacher zu implementieren als eine exakte Wartezeit unabhängig von der Verarbeitung zu warten.</p>
+<p data-sourcepos="93:1-93:300">Verzeichnis zum Abspeichern der Textdateien: Per Default werden die Textdateien im aktuellen Verzeichnis abgespeichert. Man kann hier angeben, in welchem Verzeichnis die Dateien abgelegt werden sollen. Für dieses Verzeichnis muss der User, unter dem das Programm gestartet wird, Schreibrechte haben.</p>
+<p data-sourcepos="95:1-95:164">Beispiel #1: Es soll nur ein einziges Mal ein Updates geholt und abgelegt werden. Das Update soll im Verzeichnis /home/pi/ abgelegt werden. Der Aufruf sieht so aus:</p>
+<pre data-sourcepos="96:1-98:3"><code>./telegram_check_updates 123456:ABCDEFGE_gjklpoiuztr 1 1 /home/pi/
+</code></pre>
+<p data-sourcepos="99:1-99:234">Beispiel #2: Es soll 10 mal versucht werden, Updates zu holen und zwischen den Aufrufen soll 5 Sekunden gewartet werden. Als Verzeichnis zum Ablegen der Updates soll das gleiche Vereichnis genutzt werden, wo das Programm selbst liegt:</p>
+<pre data-sourcepos="100:1-102:3"><code>./telegram_check_updates 123456:ABCDEFGE_gjklpoiuztr 10 50
+</code></pre>
+<h1 data-sourcepos="103:1-103:25">Updates als Textdateien</h1>
+<p data-sourcepos="105:1-105:82">Die Textdateien, die das Programm anlegt, haben diese Konventionen für den Namen:</p>
+<pre data-sourcepos="106:1-108:3"><code>&lt;Jahr&gt;&lt;Monat&gt;&lt;Tag&gt;_&lt;Uhrzeit&gt;_&lt;Zufallszahl mit 4 Stellen&gt;.txt
+</code></pre>
+<p data-sourcepos="109:1-109:54">Der Inhalt der Datei hat 3 Zeilen sieht wie folgt aus:</p>
+<pre data-sourcepos="110:1-114:3"><code>Name: messages_from_chat
+Chat-ID: &lt;die ID des Chats&gt;
+Message: &lt;Text, der im Chat eingegeben wurde&gt;
+</code></pre>
+<h1 data-sourcepos="116:1-116:33">Wie wird das Programm erstellt?</h1>
+<p data-sourcepos="118:1-120:61">Das Programm ist in C++ geschrieben. Um aus dem Quelltext ein ausführbares Programm zu erzeugen, kann die Make-Datei namens makefile genutzt werden.
+Beachte, dass dieses Programm von mir erstellte C++-Klassen nutzt, die ich für allgemeine Zwecke aufgebaut habe. Diese Klassen werden auch in anderen Programmen benutzt. Diese C++-Klassen liegen bei mir im Verzeichnis /home/pi/cpp_sources. Das makefile sucht darin auch diese Klassen.
+Die aktuelle Fassung der Dateien ist im Repository abgelegt.</p>
+<p data-sourcepos="122:1-122:117">Das Programm ist nur auf dem Raspberry Pi getestet worden. Es sollte aber auch auf einem anderem Linux funktionieren.</p>
+<h1 data-sourcepos="124:1-124:17">Beispieldateien</h1>
+<p data-sourcepos="126:1-126:95">Im Verzeichnis <code>samples</code> sind Beispiele abgelegt, wie die Dateien mit den Updates aussehen.</p>
+<h1 data-sourcepos="128:1-128:10">Ausblick</h1>
+<p data-sourcepos="130:1-130:263">Das Programm wird in mein Programm <a href="https://github.com/Sunblogger/message2action">message2action</a> integriert werden. Mit dieser Integration wird auf das Ablegen und Einlesen von Textdateien verzichtet. Es ist dann eine Verarbeitung der Daten im Speicher möglich.</p>
+
+    </article>
+  </body>
+</html>
