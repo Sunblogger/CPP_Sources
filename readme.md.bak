@@ -10,7 +10,6 @@ Directory [logfile] (https://github.com/Sunblogger/CPP_Sources/tree/main/logfile
 Directory [stopfile] (https://github.com/Sunblogger/CPP_Sources/tree/main/stopfile): Reading a stop file, the existence of which indicates to a program that it should terminate. A content can also be specified in the stop file, which must be present in order to terminate the program.
 
 Sample programs that show how the classes are used are also stored in the directories.
-
 ---
 # Deutsche Version
 
