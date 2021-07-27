@@ -62,10 +62,11 @@ Mit dem Beispielprogramm ```inifile_example.cpp``` und der ini-Datei ```inifile_
 
 # Beispielprogramm
 
+Das Beispielprogramm ```inifile_example.cpp``` liest die ini-Datei ```inifile_example.ini``` ein und zeigt die Werte auf dem Bildschirm an. Um das Programm zu erzeugen, kann das Make-File ```makefile``` genutzt werden. Es wird vorausgesetzt, dass die Klassen-Dateien im Verzeichnis ```/home/pi/cpp_sources``` liegen.
 
 # Plattform
 
-Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt.
+Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt. Das Programm läuft bei mir auf einem Raspberry Pi 2B.  
 
 # Ausblick
 Es wäre vielleicht hilfreich, die Map mit den Parametern und den Werten auch wieder in die Ini-Datei zurückzuschreiben. Das ist aber nicht so ganz einfach, weil die Kommentare in der ini-Datei erhalten bleiben sollen.
