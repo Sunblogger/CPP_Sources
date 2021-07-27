@@ -45,9 +45,9 @@ Ganze Zahlen (Integer) ohne Vorzeichen
 
 Ganze Zahlen (Integer) mit Vorzeichen
 
-Fließkommazahlen (positive wie negative)
+Fließkommazahlen (positive wie negative). Als Trennzeichen zwischen dem ganzzahligem Teil und dem gebrochenen Teil wird das ```,``` verwendet und nicht der ```.```.
 
-Wahrheitswerte (true oder false)
+Wahrheitswerte. Diese können ```true``` oder ```false``` lauten.
 
 Die Klasse hat eine Map, um die Parameter und die Werte zu den Parametern zu speichern. In der ersten Spalte steht der Name des Parameters und in der zweiten Spalte steht der Wert dazu.
 
@@ -55,14 +55,30 @@ Beispiel 1: Als Parameter soll in der ini-Datei der Nachname einer Person angege
 
 Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein Integer ohne Vorzeichen
 
-Die Klasse stellt Methoden zur Verfügung, um aus der Map zu einem Parameter den Wert auszulesen und auch wieder in der Map zu speichern. Damit kann die Map als Speicher für die Konfiguration genutzt werden. Ein Schreiben der Map in eine ini-Datei (zum Beispiel beim Beenden des Programms) ist aktuell nicht realisiert.
+Die Klasse stellt Methoden zur Verfügung, um aus der Map zu einem Parameter den Wert auszulesen und auch wieder in der Map zu speichern. Damit kann die Map als Speicher für die Konfiguration des Programms genutzt werden. Ein Schreiben der Map in eine ini-Datei (zum Beispiel beim Beenden des Programms) ist aktuell nicht realisiert.  
+Mit dem Zeichen '\#' können Kommentare markiert werden. Alle Zeichen nach dem '\#' werden ignoriert.  
+Das '=' wird genutzt, um den Parameter vom Wert zu trennen. Vor und nach dem '=' dürfen keine Leerzeichen stehen.
 
+Die oben erwähnte Map muss vom Anwender der Klasse mit Werten gefüllt werden. Dazu muss der Anwender den zu suchenden Parameter und den erwartenden Typ (String, Integer, Wahrheitswert etc.) des Wertes angeben. Die Klasse liest dann die ini-Datei ein und versucht, den Parameter und den Wert dazu zu finden. Der gefundene Wert wird dann nach dem angegebenen Typ in der Map abgelegt. Das hat den Vorteil, dass dies Konvertierung von Strings (die in der ini-Datei stehen) in Integer etc. nicht später im Programmablauf vorgenommen werden muss.
+
+# Beispiel für eine ini-Datei
+
+Hier ein Beispiel für eine ini-Datei:
+```
+# Configuration file for inifile_example 
+# All values must be specified in the following way:  
+# <parameter>=<value>  
+last_name=Miller
+average_age=45,87
+male=true
+size_in_cm=178
+```
 # Beispielprogramme
-
+Das Program ```inifile_example.cpp``` zeigt, wie man die Klasse nutzen kann.
 
 # Plattform
 
-Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt.
+Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt. Die Klasse wird aber auf einem Raspberry Pi (ARMHF) eingesetzt.
 
 # Ausblick
 Es wäre vielleicht hilfreich, die Map mit den Parametern und den Werten auch wieder in die Ini-Datei zurückzuschreiben. Das ist aber nicht so ganz einfach, weil die Kommentare in der ini-Datei erhalten bleiben sollen.
