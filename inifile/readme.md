@@ -37,20 +37,27 @@ The class is currently writing the content to a file. As a further development, 
 
 # Was kann diese Klasse?
 
-Diese Klasse kann sogenannte ini-Dateien lesen und wertet den Inhalt als Konfiguration für ein Programm aus. Die Klasse kann diese Typen von Parametern unterscheiden:
+Diese Klasse kann sogenannte ini-Dateien lesen und wertet den Inhalt als Konfiguration fÃ¼r ein Programm aus. Die Klasse kann diese Typen von Parametern unterscheiden:
 
-Strings (Zeichenketten)
+Strings (Zeichenketten)  
+Ganze Zahlen (Integer) ohne Vorzeichen  
+Ganze Zahlen (Integer) mit Vorzeichen  
+Fließkommazahlen (positive wie negative). Als Trennzeichen zwischen dem ganzzahligem Teil und dem gebrochenen Teil wird das ```,``` verwendet und nicht der ```.```.   
+Wahrheitswerte (true oder false). Diese können ```true``` oder ```false``` lauten.  
+Die Klasse hat eine Map, um die Parameter und die Werte mit Angabe des Typs zu den Parametern zu speichern. In der ersten Spalte steht der Name des Parameters und in der zweiten Spalte steht der Wert mit Angabe des Typs dazu.
 
-Ganze Zahlen (Integer) ohne Vorzeichen
+Beispiel 1: Als Parameter soll in der ini-Datei der Nachname einer Person angegeben werden. Der passende Typ zu diesem Parameter wÃ¤re dann ein String.  
+Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person angegeben werden. Der passende Typ zu diesem Parameter wÃ¤re dann ein Integer ohne Vorzeichen.  
 
-Ganze Zahlen (Integer) mit Vorzeichen
+Die Klasse stellt Methoden zur Verfügung, um aus der Map zu einem Parameter den Wert auszulesen und auch wieder in der Map zu speichern. Damit kann die Map als Speicher fÃ¼r die Konfiguration des Programms genutzt werden. Ein Schreiben der Map in eine ini-Datei (zum Beispiel beim Beenden des Programms) ist aktuell nicht realisiert.
 
-Fließkommazahlen (positive wie negative). Als Trennzeichen zwischen dem ganzzahligem Teil und dem gebrochenen Teil wird das ```,``` verwendet und nicht der ```.```.
+# Fehlersituationen
 
-Wahrheitswerte. Diese können ```true``` oder ```false``` lauten.
-
-Die Klasse hat eine Map, um die Parameter und die Werte zu den Parametern zu speichern. In der ersten Spalte steht der Name des Parameters und in der zweiten Spalte steht der Wert dazu.
-
+Beim Anwenden der Klasse kann es zu folgenden Fehlersituationen kommen:  
+In der ini-Datei wird ein Parameter gesucht aber nicht gefunden. In diesem Fall wird eine Fehlermeldung ausgegeben.  
+In der ini-Datei wird ein Parameter gefunden aber der Wert dazu passt nicht zu dem gewÃ¼nschten Typ. Beispiele: Es wird eine ganze Zahl als Wert erwartet aber durch einen Tippfehler sind Buchstaben in dem Wert enthalten. Es wird ein Wahrheitswert erwartet (true oder false) aber als Wert ist eine Zahl angegeben.  
+Beim Einlesen und Auswerten der ini-Datei finden PlausibilitÃ¤tstests statt, ob der Wert zu dem Typ passt, der in der oben erwÃ¤hnten Map angegeben ist. Scheitern die Plausibilitätstests, so wird eine Fehlermeldung erzeugt.
+Mit dem Beispielprogramm ```inifile_example.cpp``` und der ini-Datei ```inifile_example.ini``` wird gezeigt, wie auf diese Fehler reagiert werden kann.
 Beispiel 1: Als Parameter soll in der ini-Datei der Nachname einer Person angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein String.
 
 Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein Integer ohne Vorzeichen
@@ -88,11 +95,15 @@ Das Beispielprogramm ```inifile_example.cpp``` liest die ini-Datei ```inifile_ex
 
 # Plattform
 
-Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt. Das Programm läuft bei mir auf einem Raspberry Pi 2B.  
+Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt. Die Klasse wird aber auf einem Raspberry Pi 2B (ARMHF) eingesetzt.  
+
+# Beispielprogramm
+
+Das Beispielprogramm ```inifile_example.cpp``` liest die ini-Datei ```inifile_example.ini``` ein und zeigt die Werte auf dem Bildschirm an. Um das Programm zu erzeugen, kann das Make-File ```makefile``` genutzt werden. Es wird vorausgesetzt, dass die Klassen-Dateien im Verzeichnis ```/home/pi/cpp_sources``` liegen.
 
 # Plattform
 
-Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt. Die Klasse wird aber auf einem Raspberry Pi (ARMHF) eingesetzt.
+Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt. Das Programm läuft bei mir auf einem Raspberry Pi 2B.  
 
 # Ausblick
 Es wäre vielleicht hilfreich, die Map mit den Parametern und den Werten auch wieder in die Ini-Datei zurückzuschreiben. Das ist aber nicht so ganz einfach, weil die Kommentare in der ini-Datei erhalten bleiben sollen.
