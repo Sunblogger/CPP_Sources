@@ -104,7 +104,6 @@ Das Beispielprogramm ```inifile_example.cpp``` liest die ini-Datei ```inifile_ex
 # Plattform
 
 Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS fÃ¼r x86 in einer virtuellen Maschine genutzt. Das Programm lÃ¤uft bei mir auf einem Raspberry Pi 2B.  
->>>>>>> 8cc0eb87a50f771f665ce486204fc2a685bfad23
 
 # Ausblick
 Es wäre vielleicht hilfreich, die Map mit den Parametern und den Werten auch wieder in die Ini-Datei zurückzuschreiben. Das ist aber nicht so ganz einfach, weil die Kommentare in der ini-Datei erhalten bleiben sollen.
