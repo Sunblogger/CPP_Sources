@@ -73,8 +73,22 @@ average_age=45,87
 male=true
 size_in_cm=178
 ```
-# Beispielprogramme
-Das Program ```inifile_example.cpp``` zeigt, wie man die Klasse nutzen kann.
+# Fehlersituationen
+
+Beim Anwenden der Klasse kann es zu folgenden Fehlersituationen kommen:  
+In der ini-Datei wird ein Parameter gesucht aber nicht gefunden. In diesem Fall wird eine Fehlermeldung ausgegeben.  
+In der ini-Datei wird ein Parameter gefunden aber der Wert dazu passt nicht zu dem gewünschten Typ. Beispiele: Es wird eine ganze Zahl als Wert erwartet aber durch einen Tippfehler sind Buchstaben in dem Wert enthalten. Es wird ein Wahrheitswert erwartet (true oder false) aber als Wert ist eine Zahl angegeben.  
+Beim Einlesen und Auswerten der ini-Datei finden Plausibilitätstests statt, ob der Wert zu dem Typ passt, der in der oben erwähnten Map angegeben ist. Scheitern die Plausibilitätstests, so wird eine Fehlermeldung erzeugt.
+Mit dem Beispielprogramm ```inifile_example.cpp``` und der ini-Datei ```inifile_example.ini``` wird gezeigt, wie auf diese Fehler reagiert werden kann.
+
+
+# Beispielprogramm
+
+Das Beispielprogramm ```inifile_example.cpp``` liest die ini-Datei ```inifile_example.ini``` ein und zeigt die Werte auf dem Bildschirm an. Um das Programm zu erzeugen, kann das Make-File ```makefile``` genutzt werden. Es wird vorausgesetzt, dass die Klassen-Dateien im Verzeichnis ```/home/pi/cpp_sources``` liegen.
+
+# Plattform
+
+Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt. Das Programm läuft bei mir auf einem Raspberry Pi 2B.  
 
 # Plattform
 
