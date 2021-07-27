@@ -51,12 +51,50 @@ Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person angegeben
 
 Die Klasse stellt Methoden zur Verf√ºgung, um aus der Map zu einem Parameter den Wert auszulesen und auch wieder in der Map zu speichern. Damit kann die Map als Speicher f√ºr die Konfiguration des Programms genutzt werden. Ein Schreiben der Map in eine ini-Datei (zum Beispiel beim Beenden des Programms) ist aktuell nicht realisiert.
 
+<<<<<<< HEAD
+Flieﬂkommazahlen (positive wie negative). Als Trennzeichen zwischen dem ganzzahligem Teil und dem gebrochenen Teil wird das ```,``` verwendet und nicht der ```.```.
+
+Wahrheitswerte. Diese kˆnnen ```true``` oder ```false``` lauten.
+=======
 # Fehlersituationen
 
 Beim Anwenden der Klasse kann es zu folgenden Fehlersituationen kommen:  
 In der ini-Datei wird ein Parameter gesucht aber nicht gefunden. In diesem Fall wird eine Fehlermeldung ausgegeben.  
 In der ini-Datei wird ein Parameter gefunden aber der Wert dazu passt nicht zu dem gew√ºnschten Typ. Beispiele: Es wird eine ganze Zahl als Wert erwartet aber durch einen Tippfehler sind Buchstaben in dem Wert enthalten. Es wird ein Wahrheitswert erwartet (true oder false) aber als Wert ist eine Zahl angegeben.  
 Beim Einlesen und Auswerten der ini-Datei finden Plausibilit√§tstests statt, ob der Wert zu dem Typ passt, der in der oben erw√§hnten Map angegeben ist. Scheitern die Plausibilit√§tstests, so wird eine Fehlermeldung erzeugt.
+Mit dem Beispielprogramm ```inifile_example.cpp``` und der ini-Datei ```inifile_example.ini``` wird gezeigt, wie auf diese Fehler reagiert werden kann.
+>>>>>>> 8cc0eb87a50f771f665ce486204fc2a685bfad23
+
+
+<<<<<<< HEAD
+Beispiel 1: Als Parameter soll in der ini-Datei der Nachname einer Person angegeben werden. Der passende Typ zu diesem Parameter w‰re dann ein String.
+
+Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person angegeben werden. Der passende Typ zu diesem Parameter w‰re dann ein Integer ohne Vorzeichen
+
+Die Klasse stellt Methoden zur Verf¸gung, um aus der Map zu einem Parameter den Wert auszulesen und auch wieder in der Map zu speichern. Damit kann die Map als Speicher f¸r die Konfiguration des Programms genutzt werden. Ein Schreiben der Map in eine ini-Datei (zum Beispiel beim Beenden des Programms) ist aktuell nicht realisiert.  
+Mit dem Zeichen '\#' kˆnnen Kommentare markiert werden. Alle Zeichen nach dem '\#' werden ignoriert.  
+Das '=' wird genutzt, um den Parameter vom Wert zu trennen. Vor und nach dem '=' d¸rfen keine Leerzeichen stehen.
+
+Die oben erw‰hnte Map muss vom Anwender der Klasse mit Werten gef¸llt werden. Dazu muss der Anwender den zu suchenden Parameter und den erwartenden Typ (String, Integer, Wahrheitswert etc.) des Wertes angeben. Die Klasse liest dann die ini-Datei ein und versucht, den Parameter und den Wert dazu zu finden. Der gefundene Wert wird dann nach dem angegebenen Typ in der Map abgelegt. Das hat den Vorteil, dass dies Konvertierung von Strings (die in der ini-Datei stehen) in Integer etc. nicht sp‰ter im Programmablauf vorgenommen werden muss.
+
+# Beispiel f¸r eine ini-Datei
+
+Hier ein Beispiel f¸r eine ini-Datei:
+```
+# Configuration file for inifile_example 
+# All values must be specified in the following way:  
+# <parameter>=<value>  
+last_name=Miller
+average_age=45,87
+male=true
+size_in_cm=178
+```
+# Fehlersituationen
+
+Beim Anwenden der Klasse kann es zu folgenden Fehlersituationen kommen:  
+In der ini-Datei wird ein Parameter gesucht aber nicht gefunden. In diesem Fall wird eine Fehlermeldung ausgegeben.  
+In der ini-Datei wird ein Parameter gefunden aber der Wert dazu passt nicht zu dem gew¸nschten Typ. Beispiele: Es wird eine ganze Zahl als Wert erwartet aber durch einen Tippfehler sind Buchstaben in dem Wert enthalten. Es wird ein Wahrheitswert erwartet (true oder false) aber als Wert ist eine Zahl angegeben.  
+Beim Einlesen und Auswerten der ini-Datei finden Plausibilit‰tstests statt, ob der Wert zu dem Typ passt, der in der oben erw‰hnten Map angegeben ist. Scheitern die Plausibilit‰tstests, so wird eine Fehlermeldung erzeugt.
 Mit dem Beispielprogramm ```inifile_example.cpp``` und der ini-Datei ```inifile_example.ini``` wird gezeigt, wie auf diese Fehler reagiert werden kann.
 
 
@@ -66,7 +104,20 @@ Das Beispielprogramm ```inifile_example.cpp``` liest die ini-Datei ```inifile_ex
 
 # Plattform
 
+Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS f¸r x86 in einer virtuellen Maschine genutzt. Das Programm l‰uft bei mir auf einem Raspberry Pi 2B.  
+
+# Plattform
+
+Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS f¸r x86 in einer virtuellen Maschine genutzt. Die Klasse wird aber auf einem Raspberry Pi (ARMHF) eingesetzt.
+=======
+# Beispielprogramm
+
+Das Beispielprogramm ```inifile_example.cpp``` liest die ini-Datei ```inifile_example.ini``` ein und zeigt die Werte auf dem Bildschirm an. Um das Programm zu erzeugen, kann das Make-File ```makefile``` genutzt werden. Es wird vorausgesetzt, dass die Klassen-Dateien im Verzeichnis ```/home/pi/cpp_sources``` liegen.
+
+# Plattform
+
 Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS f√ºr x86 in einer virtuellen Maschine genutzt. Das Programm l√§uft bei mir auf einem Raspberry Pi 2B.  
+>>>>>>> 8cc0eb87a50f771f665ce486204fc2a685bfad23
 
 # Ausblick
 Es w√§re vielleicht hilfreich, die Map mit den Parametern und den Werten auch wieder in die Ini-Datei zur√ºckzuschreiben. Das ist aber nicht so ganz einfach, weil die Kommentare in der ini-Datei erhalten bleiben sollen.
