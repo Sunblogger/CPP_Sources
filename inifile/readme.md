@@ -74,7 +74,7 @@ Hier ein Beispiel für eine ini-Datei:
 # All values must be specified in the following way:  
 # <parameter>=<value>  
 last_name=Miller
-average_age=45,87
+average_age=45.87
 male=true
 size_in_cm=178
 ```
