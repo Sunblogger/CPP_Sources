@@ -5,33 +5,60 @@ German version [below](#deutsche-version).
 
 # What can this class do?
 
-The aim of the logfile_class class is to write status messages to a log file in a running program. This class is available in 2 versions, one without threads and one with threads.
-3 different levels can be specified with which information is written to the log file: information, warnings and errors. The user has to decide for himself which level the information to be written falls into.
-A new line is written for each entry in the log file; the system date plus time is at the beginning of each line. Then the specified level (information, warning, error) follows and then the text.
-You can specify a maximum file size that the log file should not exceed. When this limit is reached, the file is reduced by half by deleting the older half of the entries. This prevents the file from growing indefinitely.
+This class can read so-called ini files and evaluates the content as a configuration for a program. The class can distinguish between these types of parameters:
 
-# Threads
-If you don't use threads in your program, you shouldn't use the thread variant either. The thread variant causes a bit more costs, since it works with locked mutexes. To use the thread variant, the #define thread_safe_logging (in the loggfile.hpp file) must be switched on.
+Strings
+Unsigned whole numbers (integers)
+Signed whole numbers (integers)
+Floating point numbers (positive and negative). The ``.`` Is used as the separator between the integer part and the fractional part and not the ``,``.
+Truth values: These can be ``true`` or ``false``.
+The class has a map ```var_map``` to save the parameters and the values with specification of the type for the parameters. The name of the parameter is in the first column. In the second column there is a struct that stores both the type of the parameter and the value of the parameter.
+Example 1: The surname of a person is to be specified as a parameter in the ini file. The appropriate type for this parameter would then be a string.
+Example 2: The age of a person in whole years is to be specified as a parameter in the ini file. The appropriate type for this parameter would then be an unsigned integer.
 
-# Sample programs
+The class provides methods to read the value of a parameter from the map and to save it again in the map. This means that the map can be used as memory for the configuration of the program. Writing the map to an ini file (for example when exiting the program) is currently not implemented.
 
-There are two sample programs that show how the class can be used. ```logfile_example.cpp``` is the example program without threads. ```logfile_example_thread.cpp``` is the sample program for threads.
-Both variants can be created with the make file makefile. It should be noted here that the #define mentioned above must be activated in order to create the thread example.
-After executing the program logfile_example_thread you can see in the log file logfile_example_thread.log that the 50 generated threads made entries in the log file in an unpredictable order.
+The class should be used in these steps: First, the ini file is read in using the ```read_ini_file()``` method. Then the mentioned ```var_map``` is filled with values.
 
-# Performance
+# Error situations
 
-The sample program logfile_example can be used to test how many lines can be written to the log file at a time. Here are examples of writing 100.000 lines per time that I've found with my systems:  
-Intel i7-4720 HQ @ 2.6 GHz: 2.9 seconds  
-AMD Ryzen 7 2700 @ 3.7 GHz: 1.8 seconds  
-Raspberry Pi 2 Model B Rev 1.1: 11.5 seconds  
+The following error situations can occur when using the class:
+A parameter is searched for in the ini file but not found. In this case an error message is issued.
+A parameter is found in the ini file, but the associated value does not match the desired type. Example 1: An integer is expected as a value, but letters are included in the value due to a typo. Example 2: A truth value is expected (true or false) but a number is specified as the value.
+When reading in and evaluating the ini file, plausibility tests are carried out to determine whether the value matches the type specified in the above-mentioned map. If the plausibility tests fail, an error message is generated. All values entered in the map up to then are correct. However, the program should be aborted if no correct values ​​could be taken from the INI file.
+The example program ```inifile_example.cpp``` and the ini file ```inifile_example.ini``` show how to react to these errors.
+Example 1: The surname of a person is to be specified as a parameter in the ini file. The appropriate type for this parameter would then be a string.
+Example 2: The age of a person is to be specified as a parameter in the ini file. The appropriate type for this parameter would then be an unsigned integer.
+
+The class provides methods to read the value of a parameter from the map and to save it again in the map. This means that the map can be used as memory for the configuration of the program. Writing the map to an ini file (for example when exiting the program) is currently not implemented.
+Comments can be marked with the '\ #' character. All characters after the '\ #' are ignored.
+The '=' is used to separate the parameter from the value. There must be no spaces before or after the '='.
+
+The above-mentioned map must be filled with values ​​by the user of the class. To do this, the user must specify the parameter to be searched for and the expected type (string, integer, truth value, etc.) of the value. The class then reads the ini file and tries to find the parameter and the value for it. The value found is then stored in the map according to the specified type. This has the advantage that the conversion of strings (which are in the ini file) into integers etc. does not have to be carried out later in the program sequence.
+
+# Example of an ini file
+
+Here is an example of an ini file:
+``
+# Configuration file for inifile_example
+# All values must be specified in the following way:
+# <parameter> = <value>
+last_name = Miller
+average_age = 45.87
+male = true
+size_in_cm = 178
+``
+
+# Sample program
+
+The sample program `` inifile_example.cpp '' reads the ini file `` inifile_example.ini '' and displays the values on the screen. The make file `` makefile '' can be used to generate the program. It is assumed that the class files are in the directory ```/home/pi/cpp_sources```. 
 
 # Platform
 
-The class was only tested on Raspberry OS. The Raspberry OS for x86 was used in a virtual machine for development. 
+The class was only tested on Raspberry OS. The Raspberry OS for x86 was used in a virtual machine for development. However, the class is used on a Raspberry Pi 2B (ARMHF).
 
 # Outlook
-The class is currently writing the content to a file. As a further development, it is conceivable to also send the content to a serial port or an I2C port. This means that the class could also be used for microcontrollers such as the ESP32. 
+It might be helpful to write the map with the parameters and the values back to the ini file. But this is not that easy, because the comments should be retained in the ini file. 
 
 # Deutsche Version
 
