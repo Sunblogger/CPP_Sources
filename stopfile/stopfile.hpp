@@ -2,7 +2,7 @@
 #define _stopf_file_class_include
 /*
  * stop_file_class.hpp
- * Release: 0.1, date: 23.01.2021
+ * Release: 0.3, date: 01.08.2021
  * Copyright 2021
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -40,19 +40,18 @@ public:
 		WRONG_CONTENT			// we have not correct content in stop-file
 	};
 
-stop_file_class(const std::string file_name, const std::string command_to_search) : stop_file_name(file_name), command(command_to_search) {}	// constructor with 2 parameters: name of stop-file + content in file we want to search for
+stop_file_class(const std::string file_name, const std::string command_to_search) : stop_file_name(file_name), command(command_to_search) {check_content_flag = true;}	// constructor with 2 parameters: name of stop-file + content in file we want to search for. If we call this constructor, we change the flag check_content_flag to 'true'
 stop_file_class(const std::string file_name) : stop_file_name(file_name) {} 	// constructor with only 1 parameter: name of stop-file
-stop_file_class::returncode check_stop_file(const bool check_content);	// method that checks if we have a stop-file 
+stop_file_class::returncode check_stop_file();	// method that checks if we have a stop-file 
 std::string get_stopfile_name() {return stop_file_name;};	// tells us the filename
-void set_logfile(logfile_class *logfileclass) { logclass = logfileclass;};	// we set a pointer to logfileclass
 returncode create_stop_file();	// method to create a stop-file
 
 private:
-	std::string command_in_file;	// the command we find in the file
-	std::string stop_file_name;		// the name of the file which contains the command stop_program
-	std::string command = "";		// the command we expect to see
-	std::ifstream stop_file;		// the file which contains the command
-	logfile_class *logclass = nullptr;	// a pointer to an object of type logfile_class; we initialize with nullptr so that we can check if we have a logfile or not
+	std::string command_in_file;		// the command we find in the file
+	std::string stop_file_name;			// the name of the file which contains the command stop_program
+	std::string command = "";			// the command we expect to see
+	bool check_content_flag = false;	// flags if we have to check the content of the stop-file (yes or no)
+	std::ifstream stop_file;			// the file which contains the command
 };	// end of stop_file_class
 
 #endif	// #ifndef _stop_file_class_include
