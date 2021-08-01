@@ -5,9 +5,6 @@
  ini_file_class.hpp
  Release: 0.2, date: 13.04.2021
  
- 
- 
- 
  * Copyright 2021
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
