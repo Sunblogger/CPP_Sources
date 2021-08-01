@@ -50,7 +50,7 @@ Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person in ganzen
 
 Die Klasse stellt Methoden zur Verfügung, um aus der Map zu einem Parameter den Wert auszulesen und auch wieder in der Map zu speichern. Damit kann die Map als Speicher für die Konfiguration des Programms genutzt werden. Ein Schreiben der Map in eine ini-Datei (zum Beispiel beim Beenden des Programms) ist aktuell nicht realisiert.
 
-Die Anwendung der Klasse geschiehtsollte in diesen Schritten erfolgen: Zuerst wird die Ini-Datei eingelesen mit der Methode ```read_ini_file()```. Anschließend wird die erwähnte ```var_map``` mit Werten aufgefüllt.
+Die Anwendung der Klasse sollte in diesen Schritten erfolgen: Zuerst wird die Ini-Datei eingelesen mit der Methode ```read_ini_file()```. Anschließend wird die erwähnte ```var_map``` mit Werten aufgefüllt.
 
 # Fehlersituationen
 
