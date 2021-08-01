@@ -25,7 +25,7 @@ The class should be used in these steps: First, the ini file is read in using th
 The following error situations can occur when using the class:
 A parameter is searched for in the ini file but not found. In this case an error message is issued.
 A parameter is found in the ini file, but the associated value does not match the desired type. Example 1: An integer is expected as a value, but letters are included in the value due to a typo. Example 2: A truth value is expected (true or false) but a number is specified as the value.
-When reading in and evaluating the ini file, plausibility tests are carried out to determine whether the value matches the type specified in the above-mentioned map. If the plausibility tests fail, an error message is generated. All values entered in the map up to then are correct. However, the program should be aborted if no correct values ​​could be taken from the INI file.
+When reading in and evaluating the ini file, plausibility tests are carried out to determine whether the value matches the type specified in the above-mentioned map. If the plausibility tests fail, an error message is generated. All values entered in the map up to then are correct. However, the program should be aborted if no correct values could be taken from the INI file.
 The example program ```inifile_example.cpp``` and the ini file ```inifile_example.ini``` show how to react to these errors.
 Example 1: The surname of a person is to be specified as a parameter in the ini file. The appropriate type for this parameter would then be a string.
 Example 2: The age of a person is to be specified as a parameter in the ini file. The appropriate type for this parameter would then be an unsigned integer.
@@ -34,12 +34,12 @@ The class provides methods to read the value of a parameter from the map and to 
 Comments can be marked with the '\ #' character. All characters after the '\ #' are ignored.
 The '=' is used to separate the parameter from the value. There must be no spaces before or after the '='.
 
-The above-mentioned map must be filled with values ​​by the user of the class. To do this, the user must specify the parameter to be searched for and the expected type (string, integer, truth value, etc.) of the value. The class then reads the ini file and tries to find the parameter and the value for it. The value found is then stored in the map according to the specified type. This has the advantage that the conversion of strings (which are in the ini file) into integers etc. does not have to be carried out later in the program sequence.
+The above-mentioned map must be filled with values by the user of the class. To do this, the user must specify the parameter to be searched for and the expected type (string, integer, truth value, etc.) of the value. The class then reads the ini file and tries to find the parameter and the value for it. The value found is then stored in the map according to the specified type. This has the advantage that the conversion of strings (which are in the ini file) into integers etc. does not have to be carried out later in the program sequence.
 
 # Example of an ini file
 
 Here is an example of an ini file:
-``
+```
 # Configuration file for inifile_example
 # All values must be specified in the following way:
 # <parameter> = <value>
@@ -47,18 +47,19 @@ last_name = Miller
 average_age = 45.87
 male = true
 size_in_cm = 178
-``
+```
 
 # Sample program
 
-The sample program `` inifile_example.cpp '' reads the ini file `` inifile_example.ini '' and displays the values on the screen. The make file `` makefile '' can be used to generate the program. It is assumed that the class files are in the directory ```/home/pi/cpp_sources```. 
+The sample program ```inifile_example.cpp``` reads the ini file ```inifile_example.ini``` and displays the values on the screen. The make file ```makefile``` can be used to generate the program. It is assumed that the class files are in the directory ```/home/pi/cpp_sources```. 
 
 # Platform
 
 The class was only tested on Raspberry OS. The Raspberry OS for x86 was used in a virtual machine for development. However, the class is used on a Raspberry Pi 2B (ARMHF).
 
 # Outlook
-It might be helpful to write the map with the parameters and the values back to the ini file. But this is not that easy, because the comments should be retained in the ini file. 
+It might be helpful to write the map with the parameters and the values back to the ini file. But this is not that easy, because the comments should be retained in the ini file.  
+When reading the ini file, the class cannot yet deal with the fact that a carriage return (```\r```) can appear at the end of the line instead of a line feed (```\n```). This is really only important if you are creating ini files on a non-Unix system and then copying them to a Unix system. 
 
 # Deutsche Version
 
@@ -117,4 +118,5 @@ Das Beispielprogramm ```inifile_example.cpp``` liest die ini-Datei ```inifile_ex
 Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt. Die Klasse wird aber auf einem Raspberry Pi 2B (ARMHF) eingesetzt.  
 
 # Ausblick
-Es wäre vielleicht hilfreich, die Map mit den Parametern und den Werten auch wieder in die Ini-Datei zurückzuschreiben. Das ist aber nicht so ganz einfach, weil die Kommentare in der ini-Datei erhalten bleiben sollen.
+Es wäre vielleicht hilfreich, die Map mit den Parametern und den Werten auch wieder in die Ini-Datei zurückzuschreiben. Das ist aber nicht so ganz einfach, weil die Kommentare in der ini-Datei erhalten bleiben sollen.  
+Die Klasse kann beim Einlesen der ini-Datei noch nicht damit umgehen, dass am Zeilenende auch ein Carriage-Return (```\r```) statt eines Line-Feeds (```\n```) stehen kann. Das ist eigentlich nur dann von Bedeutung, wenn man ini-Dateien auf einem Nicht-Unix-System erstellt und dann auf ein Unix-System kopiert.
