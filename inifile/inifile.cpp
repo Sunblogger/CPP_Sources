@@ -84,7 +84,7 @@ for (var_map_iterator = var_map.begin(); var_map_iterator != var_map.end(); ++va
 			case variable_type::is_unsigned_int: try {
 														temp_var->var_uint = std::stoi(variable_content, &position, 10);	// we convert the string to an unsigned integer
 														if (position != variable_content.length()) {
-															std::cout << "Error in ini-file: value " << variable_content << " does contain invalid charackters in parameter " << variable_to_search_for <<std::endl;
+															std::cout << "Error in ini-file: value " << variable_content << " does contain invalid charackters in parameter " << variable_to_search_for << std::endl;
 															leave_for_loop_flag = true;
 														}
 													} catch (const std::invalid_argument &acdc) {
