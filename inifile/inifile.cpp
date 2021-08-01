@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 /*
  ini_file_class.cpp
  Release: 0.2, date: 13.04.2021
- 
- 
- 
  
  * Copyright 2021
  * 
