@@ -1,6 +1,6 @@
 /*
  * stop_file_class.cpp
- * Release: 0.3, date: 01.08.2021
+ * Release: 0.4, date: 19.03.2022
  * 
  * Copyright 2021
  * 
@@ -18,7 +18,7 @@
 #include <fstream>
 #include <filesystem>
 
-#define DEVSTAGE	// we are in development-stage and get some more infos on screen
+#define _DEVSTAGE	// we are in development-stage and get some more infos on screen
 
 #include <stopfile.hpp>
 //****************************************************************************************************************************
@@ -26,6 +26,8 @@
 // returncode: see enum class returncode  
 //****************************************************************************************************************************
 stop_file_class::returncode stop_file_class::check_stop_file() {
+
+std::error_code error_code;	
 
 if (true == check_content_flag) {	// we have to check the content of the stop-file
 	if (true == std::filesystem::exists(stop_file_name)) {	// if we have a stop-file, we try to open it:
@@ -49,13 +51,13 @@ if (true == check_content_flag) {	// we have to check the content of the stop-fi
 			#ifdef DEVSTAGE
 			std::cout << "Wrong content in stopfile. We need \"" << command << "\"" << std::endl;
 			#endif
-			return returncode::WRONG_CONTENT;
+			return returncode::STOP_FILE_WRONG_CONTENT;
 		}
 	} return returncode::NO_STOP_FILE;
 
 } else {	// we do not check content but only if file exists
 	if (std::filesystem::exists(stop_file_name) == true) {	// if file exists we delete it
-		if (std::filesystem::remove(stop_file_name) == true) { 
+		if (std::filesystem::remove(stop_file_name, error_code) == true) { 
 			#ifdef DEVSTAGE
 			std::cout << "Info: Stop-file was deleted." << std::endl;
 			#endif

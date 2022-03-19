@@ -2,7 +2,7 @@
 #define _stopf_file_class_include
 /*
  * stop_file_class.hpp
- * Release: 0.3, date: 01.08.2021
+ * Release: 0.4, date: 19.03.2022
  * Copyright 2021
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -34,10 +34,10 @@ public:
 	enum class returncode {		// define returncodes for this class
 		NO_ERROR,				// no error
 		NO_STOP_FILE,			// we do not have a stop-file
-		STOP_FILE_DELETE_ERROR,	// an error is acoured
+		STOP_FILE_DELETE_ERROR,	// we can not delete the stop-file 
 		STOP_FILE_READ_ERROR,	// we can not read the stop-file
 		STOP_FILE_CREATE_ERROR,	// we could not create the stop-file
-		WRONG_CONTENT			// we have not correct content in stop-file
+		STOP_FILE_WRONG_CONTENT	// we have not correct content in stop-file
 	};
 
 stop_file_class(const std::string file_name, const std::string command_to_search) : stop_file_name(file_name), command(command_to_search) {check_content_flag = true;}	// constructor with 2 parameters: name of stop-file + content in file we want to search for. If we call this constructor, we change the flag check_content_flag to 'true'
