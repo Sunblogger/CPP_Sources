@@ -65,7 +65,7 @@ When reading the ini file, the class cannot yet deal with the fact that a carria
 
 # Was kann diese Klasse?
 
-Diese Klasse kann sogenannte ini-Dateien lesen und wertet den Inhalt als Konfiguration fÃ¼r ein Programm aus. Die Klasse kann diese Typen von Parametern unterscheiden:
+Diese Klasse kann sogenannte ini-Dateien lesen und wertet den Inhalt als Konfiguration für ein Programm aus. Die Klasse kann diese Typen von Parametern unterscheiden:
 
 Strings (Zeichenketten)  
 Ganze Zahlen (Integer) ohne Vorzeichen  
