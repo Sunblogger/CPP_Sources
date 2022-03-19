@@ -74,9 +74,9 @@ Diese Klasse kann sogenannte ini-Dateien lesen und wertet den Inhalt als Konfigu
 - Fließkommazahlen (positive wie negative). Als Trennzeichen zwischen dem ganzzahligem Teil und dem gebrochenen Teil wird der ```.``` verwendet und nicht das ```,```.   
 - Wahrheitswerte: Diese können ```true``` oder ```false``` lauten.  
 
-Die Klasse hat eine Map ```var_map```, um die Parameter und die Werte mit Angabe des Typs zu den Parametern zu speichern. In der ersten Spalte steht der Name des Parameters. In der zweiten Spalte steht ein Struct, der sowohl den Typ des Parameters als auch den Wert zum Parameter speichert.  
-Beispiel 1: Als Parameter soll in der ini-Datei der Nachname einer Person angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein String.  
-Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person in ganzen Jahren angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein Integer ohne Vorzeichen.  
+Die Klasse hat eine Map ```var_map```, um die Parameter und die Werte mit Angabe des Typs zu den Parametern zu speichern. In der ersten Spalte steht der Name des Parameters. In der zweiten Spalte steht ein Struct, der sowohl den Typ des Parameters als auch den Wert zum Parameter speichert.\  
+Beispiel 1: Als Parameter soll in der ini-Datei der Nachname einer Person angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein String.\
+Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person in ganzen Jahren angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein Integer ohne Vorzeichen.\  
 
 Die Klasse stellt Methoden zur Verfügung, um aus der Map zu einem Parameter den Wert auszulesen und auch wieder in der Map zu speichern. Damit kann die Map als Speicher für die Konfiguration des Programms genutzt werden. Ein Schreiben der Map in eine ini-Datei (zum Beispiel beim Beenden des Programms) ist aktuell nicht realisiert.
 
@@ -87,7 +87,9 @@ Die Anwendung der Klasse sollte in diesen Schritten erfolgen: Zuerst wird die In
 Beim Anwenden der Klasse kann es zu folgenden Fehlersituationen kommen:  
 In der ini-Datei wird ein Parameter gesucht aber nicht gefunden. In diesem Fall wird eine Fehlermeldung ausgegeben.  
 In der ini-Datei wird ein Parameter gefunden aber der Wert dazu passt nicht zu dem gewünschten Typ.\
-Beispiel 1: Es wird eine ganze Zahl als Wert erwartet aber durch einen Tippfehler sind Buchstaben in dem Wert enthalten. Beispiel 2: Es wird ein Wahrheitswert erwartet (true oder false) aber als Wert ist eine Zahl angegeben.\
+Beispiel 1: Es wird eine ganze Zahl als Wert erwartet aber durch einen Tippfehler sind Buchstaben in dem Wert enthalten.\
+Beispiel 2: Es wird ein Wahrheitswert erwartet (true oder false) aber als Wert ist eine Zahl angegeben.
+
 Beim Einlesen und Auswerten der ini-Datei finden Plausibilitätstests statt, ob der Wert zu dem Typ passt, der in der oben erwähnten Map angegeben ist. Scheitern die Plausibilitätstests, so wird eine Fehlermeldung erzeugt. Alle bis dahin in die Map eingetragenen Werte sind korrekt. Es sollte aber das Programm abgebrochen werden, wenn keine korrekten Werte aus der Ini-Datei entnommen werden konnten.  
 
 Mit dem Beispielprogramm ```inifile_example.cpp``` und der ini-Datei ```inifile_example.ini``` wird gezeigt, wie auf diese Fehler reagiert werden kann.
