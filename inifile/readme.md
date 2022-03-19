@@ -76,7 +76,7 @@ Diese Klasse kann sogenannte ini-Dateien lesen und wertet den Inhalt als Konfigu
 
 Die Klasse hat eine Map ```var_map```, um die Parameter und die Werte mit Angabe des Typs zu den Parametern zu speichern. In der ersten Spalte steht der Name des Parameters. In der zweiten Spalte steht ein Struct, der sowohl den Typ des Parameters als auch den Wert zum Parameter speichert.\  
 Beispiel 1: Als Parameter soll in der ini-Datei der Nachname einer Person angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein String.\
-Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person in ganzen Jahren angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein Integer ohne Vorzeichen.\  
+Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person in ganzen Jahren angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein Integer ohne Vorzeichen.
 
 Die Klasse stellt Methoden zur Verfügung, um aus der Map zu einem Parameter den Wert auszulesen und auch wieder in der Map zu speichern. Damit kann die Map als Speicher für die Konfiguration des Programms genutzt werden. Ein Schreiben der Map in eine ini-Datei (zum Beispiel beim Beenden des Programms) ist aktuell nicht realisiert.
 
