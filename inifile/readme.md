@@ -7,11 +7,11 @@ German version [below](#deutsche-version).
 
 This class can read so-called ini files and evaluates the content as a configuration for a program. The class can distinguish between these types of parameters:
 
-Strings
-Unsigned whole numbers (integers)
-Signed whole numbers (integers)
-Floating point numbers (positive and negative). The ``.`` Is used as the separator between the integer part and the fractional part and not the ``,``.
-Truth values: These can be ``true`` or ``false``.
+- Strings
+- Unsigned whole numbers (integers)
+- Signed whole numbers (integers)
+- Floating point numbers (positive and negative). The ``.`` Is used as the separator between the integer part and the fractional part and not the ``,``.
+- Truth values: These can be ``true`` or ``false``.
 The class has a map ```var_map``` to save the parameters and the values with specification of the type for the parameters. The name of the parameter is in the first column. In the second column there is a struct that stores both the type of the parameter and the value of the parameter.
 Example 1: The surname of a person is to be specified as a parameter in the ini file. The appropriate type for this parameter would then be a string.
 Example 2: The age of a person in whole years is to be specified as a parameter in the ini file. The appropriate type for this parameter would then be an unsigned integer.
@@ -67,11 +67,11 @@ When reading the ini file, the class cannot yet deal with the fact that a carria
 
 Diese Klasse kann sogenannte ini-Dateien lesen und wertet den Inhalt als Konfiguration für ein Programm aus. Die Klasse kann diese Typen von Parametern unterscheiden:
 
-Strings (Zeichenketten)  
-Ganze Zahlen (Integer) ohne Vorzeichen  
-Ganze Zahlen (Integer) mit Vorzeichen  
-Fließkommazahlen (positive wie negative). Als Trennzeichen zwischen dem ganzzahligem Teil und dem gebrochenen Teil wird der ```.``` verwendet und nicht das ```,```.   
-Wahrheitswerte: Diese können ```true``` oder ```false``` lauten.  
+- Strings (Zeichenketten)  
+- Ganze Zahlen (Integer) ohne Vorzeichen  
+- Ganze Zahlen (Integer) mit Vorzeichen  
+- Fließkommazahlen (positive wie negative). Als Trennzeichen zwischen dem ganzzahligem Teil und dem gebrochenen Teil wird der ```.``` verwendet und nicht das ```,```.   
+- Wahrheitswerte: Diese können ```true``` oder ```false``` lauten.  
 Die Klasse hat eine Map ```var_map```, um die Parameter und die Werte mit Angabe des Typs zu den Parametern zu speichern. In der ersten Spalte steht der Name des Parameters. In der zweiten Spalte steht ein Struct, der sowohl den Typ des Parameters als auch den Wert zum Parameter speichert.  
 Beispiel 1: Als Parameter soll in der ini-Datei der Nachname einer Person angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein String.  
 Beispiel 2: Als Parameter soll in der ini-Datei das Alter einer Person in ganzen Jahren angegeben werden. Der passende Typ zu diesem Parameter wäre dann ein Integer ohne Vorzeichen.  
