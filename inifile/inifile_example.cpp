@@ -1,6 +1,6 @@
 /*
  * inifile_example.cpp
- * Date: 01.08.2021
+ * Date: 29.01.2023
  * 
  * Copyright 2021  
  * 
@@ -16,6 +16,13 @@
 
 
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <filesystem>
+#include <map>
+#include <memory>
+#include <algorithm>
+#include <vector>
 #include <inifile.hpp>	// ini-file base-class
 
 class example_ini_file_class : public ini_file_class {
