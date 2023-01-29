@@ -2,7 +2,7 @@
 #define _stopf_file_class_include
 /*
  * stop_file_class.hpp
- * Release: 0.4, date: 19.03.2022
+ * Release: 0.5, date: 29.01.2023
  * Copyright 2021
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,6 @@
  * 
  */
 
-#include <logfile.hpp>
 //****************************************************************************************************************************
 // Class to handle with files which are used to flag for our program that we want to stop. 
 // As an option we can specify a command in the file which is to be evaluated. 
