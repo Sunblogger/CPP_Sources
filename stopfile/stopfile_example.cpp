@@ -1,6 +1,6 @@
 /*
  * stopfile_example.cpp
- * Release 0.1, Date: 01.08.2021
+ * Release 0.2, Date: 29.01.2023
  * 
  * Copyright 2021  
  * 
@@ -23,6 +23,7 @@
  */
 
 #include <iostream>
+#include <fstream>
 #include <thread>
 #include <stopfile.hpp>	// stop-file base-class
 
@@ -41,7 +42,7 @@ void example_stop_file_class::thread_check_stop_file() {
 	stop_file_class::returncode result;	// the result of checking the stop-file
 	while (true)  {	// we repeat this loop until we break it
 		result = check_stop_file();
-		if ( (stop_file_class::returncode::NO_STOP_FILE == result) || (stop_file_class::returncode::WRONG_CONTENT == result)) // if we do not have a stop-file or if content is not correct we will simply sleep for a while
+		if ( (stop_file_class::returncode::NO_STOP_FILE == result) || (stop_file_class::returncode::STOP_FILE_WRONG_CONTENT == result)) // if we do not have a stop-file or if content is not correct we will simply sleep for a while
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));	// we sleep for 100 milliseconds 
 		else break;	// we have a stop-file and if we have to check the content the file has correct content
 	}
