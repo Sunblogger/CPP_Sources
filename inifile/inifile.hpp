@@ -3,7 +3,7 @@
 
 /*
  ini_file_class.hpp
- Release: 0.2, date: 13.04.2021
+ Release: 0.3, date: 29.01.2023
  
  * Copyright 2021
  * 
@@ -17,11 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <map>
-#include <memory>
-#include <iostream>
-
-#define DEVSTAGE	// we are in development-stage and get some more infos on screen
+#define _DEVSTAGE	// we are in development-stage and get some more infos on screen
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // This class works with ini-files and is the base-class.
