@@ -29,8 +29,8 @@ The waiting time between the tests should be adjustable as a parameter.
 # Was kann diese Klasse?
 
 Diese Klasse kann sogenannte stop-Dateien lesen und wertet optional den den Inhalt der Datei auch aus.  
-Wenn man einem Programm, das zum Beispiel als Daemon (systemd-Dienst) läuft, so kann man dem Programm das Anhalten nicht mehr per Kommandozeile mitteilen. Um dem Programm nun mitzuteilen, dass es sich beenden soll, kann das Programm regelmässig das Vorhandensein einer Stop-Datei prüfen. Wenn diese Datei vorhanden ist, kann das Programm das als Signal werten, dass es sich beeenden soll. Mit dieser Klasse kann das Vorhandensein einer solchen Stop-Datei geprüft werden. 
-Optional kann noch der Inhalt ausgewertet werden, so dass eine höhere Sicherheit besteht.  
+Wenn ein Programm als Daemon (systemd-Dienst) läuft, so kann man dem Programm das Anhalten nicht mehr per Kommandozeile mitteilen. Um dem Programm nun mitzuteilen, dass es sich beenden soll, kann das Programm regelmässig das Vorhandensein einer Stop-Datei prüfen. Wenn diese Datei vorhanden ist, kann das Programm das als Signal werten, dass es sich beeenden soll. Mit dieser Klasse kann das Vorhandensein einer solchen Stop-Datei geprüft werden. 
+Optional kann noch der Inhalt der Stop-Datei ausgewertet werden, so dass eine höhere Sicherheit besteht, wenn auch der Inhalt der Stop-Datei korrekt sein muss, um ein Anhalten des Programms zu signalisieren.  
 Das regelmässige Überprüfen, ob eine Stop-Datei vorhanden ist, geschieht in einem eigenen Thread. Die Wartezeit nach einem Prüfen ist aktuell mit 100 Millisekunden hart eingestellt.
 Um die Stop-Datei zu erzeugen, kann einfach ```touch <Dateiname>``` aufgerufen werden. Wenn die Datei einen bestimmten Inhalt haben soll, so kann ```echo "<Inhalt>" >> <Dateiname>``` aufgerufen werden.
 
@@ -45,4 +45,4 @@ Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspbe
 
 # Ausblick
 
-Die Wartezeit zwischen den Prüfungen sollte als Parameter einstellbar sein.
+Die Wartezeit zwischen den Prüfungen, ob eine Stop-Datei vorhanden ist, sollte als Parameter einstellbar sein.
