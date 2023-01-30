@@ -17,7 +17,7 @@ If you don't use threads in your program, you shouldn't use the thread variant e
 
 There are two sample programs that show how the class can be used. ```logfile_example.cpp``` is the example program without threads. ```logfile_example_thread.cpp``` is the sample program for threads.
 Both variants can be created with the make file makefile. It should be noted here that the ```#define``` mentioned above must be activated in order to create the thread example.
-After executing the program logfile_example_thread you can see in the log file logfile_example_thread.log that the 50 generated threads made entries in the log file in an unpredictable order.
+After executing the program logfile_example_thread you can see in the log file logfile_example_thread.log that the 30 generated threads made entries in the log file in an unpredictable order.
 
 # Performance
 
@@ -50,7 +50,7 @@ Wenn man keine Threads in seinem Programm nutzt, so sollte man auch nicht die Th
 
 Es gibt zwei Beispielprogramme, die die Anwendung der Klasse zeigen. ```logfile_example.cpp``` ist das Beispielprogramm ohne Threads. ```logfile_example_thread.cpp``` ist das Beispielprogramm für Threads.
 Mit der make-Datei makefile können beide Varianten erzeugt werden. Es ist hier zu beachten, dass für die Erstellung des Thread-Beispiels das oben erwähnte ```#define``` aktiviert werden muss.
-Nach Ausführung des Programms logfile_example_thread kann man in der Logdatei logfile_example_thread.log sehen, dass die 50 erzeugten Threads in nicht vorhersehbarer Reihenfolge Einträge in die Logdatei vorgenommen haben.
+Nach Ausführung des Programms logfile_example_thread kann man in der Logdatei logfile_example_thread.log sehen, dass die 30 erzeugten Threads in nicht vorhersehbarer Reihenfolge Einträge in die Logdatei vorgenommen haben.
 
 # Leistung
 
