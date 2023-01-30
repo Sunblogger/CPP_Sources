@@ -11,12 +11,12 @@ A new line is written for each entry in the log file; the system date plus time 
 You can specify a maximum file size that the log file should not exceed. When this limit is reached, the file is reduced by half by deleting the older half of the entries. This prevents the file from growing indefinitely.
 
 # Threads
-If you don't use threads in your program, you shouldn't use the thread variant either. The thread variant causes a bit more costs, since it works with locked mutexes. To use the thread variant, the #define thread_safe_logging (in the loggfile.hpp file) must be switched on.
+If you don't use threads in your program, you shouldn't use the thread variant either. The thread variant causes a bit more costs, since it works with locked mutexes. To use the thread variant, the ```#define thread_safe_logging``` (in the ```loggfile.hpp``` file) must be switched on.
 
 # Sample programs
 
 There are two sample programs that show how the class can be used. ```logfile_example.cpp``` is the example program without threads. ```logfile_example_thread.cpp``` is the sample program for threads.
-Both variants can be created with the make file makefile. It should be noted here that the #define mentioned above must be activated in order to create the thread example.
+Both variants can be created with the make file makefile. It should be noted here that the ```#define``` mentioned above must be activated in order to create the thread example.
 After executing the program logfile_example_thread you can see in the log file logfile_example_thread.log that the 50 generated threads made entries in the log file in an unpredictable order.
 
 # Performance
@@ -38,30 +38,30 @@ The class is currently writing the content to a file. As a further development, 
 # Was kann diese Klasse?
 
 Die Klasse logfile_class hat das Ziel, in einem laufenden Programm Statusmeldungen in eine Log-Datei zu schreiben. Diese Klasse liegt in 2 Versionen vor, einmal ohne Threads und einmal mit Threads.
-Es können 3 unterschiedliche Stufen angegeben werden, mit denen Informationen in die Log-Datei geschrieben werden: Informationen, Warnungen und Fehler. Der Anwender muss selbst entscheiden, in welche Stufe die zu schreibende Information fällt.
+Es kÃ¶nnen 3 unterschiedliche Stufen angegeben werden, mit denen Informationen in die Log-Datei geschrieben werden: Informationen, Warnungen und Fehler. Der Anwender muss selbst entscheiden, in welche Stufe die zu schreibende Information fÃ¤llt.
 Es wird je Eintrag in die Logdatei eine neue Zeile geschrieben, zu Beginn einer jeden Zeile steht das System-Datum plus Uhrzeit. Dann erfolgt die angegebene Stufe (Information, Warnung, Fehler) und dann der Text.
-Man kann eine maximale Dateigröße angeben, die die Logdatei nicht überschreiten soll. Bei Erreichen dieser Grenze wird die Datei auf die Hälfte verkleinert, indem die ältere Hälfte der Einträge gelöscht wird. Damit wird ein unbegrenztes Wachsen der Datei verhindert.
+Man kann eine maximale DateigrÃ¶ÃŸe angeben, die die Logdatei nicht Ã¼berschreiten soll. Bei Erreichen dieser Grenze wird die Datei auf die HÃ¤lfte verkleinert, indem die Ã¤ltere HÃ¤lfte der EintrÃ¤ge gelÃ¶scht wird. Damit wird ein unbegrenztes Wachsen der Datei verhindert.
 
 # Threads
 
-Wenn man keine Threads in seinem Programm nutzt, so sollte man auch nicht die Thread-Variante nutzen. Die Thread-Variante verursacht etwas mehr Kosten, da mit gelockten Mutexen gearbeitet wird. Um die Thread-Variante zu nutzen, muss das #define thread_safe_logging (in der Datei loggfile.hpp) angeschaltet werden.
+Wenn man keine Threads in seinem Programm nutzt, so sollte man auch nicht die Thread-Variante nutzen. Die Thread-Variante verursacht etwas mehr Kosten, da mit gelockten Mutexen gearbeitet wird. Um die Thread-Variante zu nutzen, muss das ```#define thread_safe_logging``` (in der Datei ```loggfile.hpp```) angeschaltet werden.
 
 # Beispielprogramme
 
-Es gibt zwei Beispielprogramme, die die Anwendung der Klasse zeigen. ```logfile_example.cpp``` ist das Beispielprogramm ohne Threads. ```logfile_example_thread.cpp``` ist das Beispielprogramm für Threads.
-Mit der make-Datei makefile können beide Varianten erzeugt werden. Es ist hier zu beachten, dass für die Erstellung des Thread-Beispiels das oben erwähnte #define aktiviert werden muss.
-Nach Ausführung des Programms logfile_example_thread kann man in der Logdatei logfile_example_thread.log sehen, dass die 50 erzeugten Threads in nicht vorhersehbarer Reihenfolge Einträge in die Logdatei vorgenommen haben.
+Es gibt zwei Beispielprogramme, die die Anwendung der Klasse zeigen. ```logfile_example.cpp``` ist das Beispielprogramm ohne Threads. ```logfile_example_thread.cpp``` ist das Beispielprogramm fÃ¼r Threads.
+Mit der make-Datei makefile kÃ¶nnen beide Varianten erzeugt werden. Es ist hier zu beachten, dass fÃ¼r die Erstellung des Thread-Beispiels das oben erwÃ¤hnte ```#define``` aktiviert werden muss.
+Nach AusfÃ¼hrung des Programms logfile_example_thread kann man in der Logdatei logfile_example_thread.log sehen, dass die 50 erzeugten Threads in nicht vorhersehbarer Reihenfolge EintrÃ¤ge in die Logdatei vorgenommen haben.
 
 # Leistung
 
-Mit dem Beispielprogramm logfile_example kann man testen, wie viele Zeilen pro Zeit in die Logdatei geschrieben werden können. Hier sind Beispiele für das Schreiben von 100.000 Zeilen pro Zeit, die ich mit meinen Systemen ermittelt habe:  
+Mit dem Beispielprogramm logfile_example kann man testen, wie viele Zeilen pro Zeit in die Logdatei geschrieben werden kÃ¶nnen. Hier sind Beispiele fÃ¼r das Schreiben von 100.000 Zeilen pro Zeit, die ich mit meinen Systemen ermittelt habe:  
 Intel i7-4720 HQ @ 2.6 GHz : 2,9 Sekunden  
 AMD Ryzen 7 2700 @ 3.7 GHz : 1,8 Sekunden  
 Raspberry Pi 2 Model B Rev 1.1 : 11,5 Sekunden  
 
 # Plattform
 
-Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS für x86 in einer virtuellen Maschine genutzt.
+Die Klasse wurde nur auf Raspberry OS getestet. Zur Entwicklung wurde das Raspberry OS fÃ¼r x86 in einer virtuellen Maschine genutzt.
 
 # Ausblick
-AKtuell schreibt die Klasse die Inhalte in eine Datei. Denkbar ist als Weiterentwicklung, die Inhalte auch auch an einen seriellen Port oder einen I2C-Port zu senden. Damit könnte die Klasse auch für Microcontroller wie dem ESP32 verwendet werden. 
+AKtuell schreibt die Klasse die Inhalte in eine Datei. Denkbar ist als Weiterentwicklung, die Inhalte auch auch an einen seriellen Port oder einen I2C-Port zu senden. Damit kÃ¶nnte die Klasse auch fÃ¼r Microcontroller wie dem ESP32 verwendet werden. 
