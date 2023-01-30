@@ -86,7 +86,7 @@ Die Anwendung der Klasse sollte in diesen Schritten erfolgen: Zuerst wird die In
 
 Beim Anwenden der Klasse kann es zu folgenden Fehlersituationen kommen:  
 In der ini-Datei wird ein Parameter gesucht aber nicht gefunden. In diesem Fall wird eine Fehlermeldung ausgegeben.  
-In der ini-Datei wird ein Parameter gefunden aber der Wert dazu passt nicht zu dem gewünschten Typ.\
+In der ini-Datei wird ein Parameter gefunden aber der Wert dazu passt nicht zu dem gewünschten Typ. In diesem Fall wird eine Fehlermeldung ausgegeben.\
 Beispiel 1: Es wird eine ganze Zahl als Wert erwartet aber durch einen Tippfehler sind Buchstaben in dem Wert enthalten.\
 Beispiel 2: Es wird ein Wahrheitswert erwartet (true oder false) aber als Wert ist eine Zahl angegeben.
 
