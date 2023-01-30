@@ -25,7 +25,7 @@ The class should be used in these steps: First, the ini file is read in using th
 
 The following error situations can occur when using the class:
 A parameter is searched for in the ini file but not found. In this case an error message is issued.\
-A parameter is found in the ini file, but the associated value does not match the desired type. \
+A parameter is found in the ini file, but the associated value does not match the desired type. In this case an error message is issued.\
 Example 1: An integer is expected as a value, but letters are included in the value due to a typo. \
 Example 2: A truth value is expected (true or false) but a number is specified as the value.\
 When reading in and evaluating the ini file, plausibility tests are carried out to determine whether the value matches the type specified in the above-mentioned map. If the plausibility tests fail, an error message is generated. All values entered in the map up to then are correct. However, the program should be aborted if no correct values could be taken from the INI file.
