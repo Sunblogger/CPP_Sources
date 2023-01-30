@@ -50,7 +50,7 @@ protected:	// the following values can be used in derived classes but only inter
 bool error_status_flag = true;		// flags the error-status of the ini-object: true = we have an error
 bool warning_status_flag = true;	// flags the warning-status of the ini-objeect: true = we have a warning
 std::string ini_file_name;			// the name of the ini-file we will read from
-unsigned int return_code;			// a return-code to handle errors in the constructor
+unsigned int inifile_return_code;			// a return-code to handle errors in the constructor
 
 enum class variable_type {	// this types of variable can we have in our ini-file:
 	is_string,			// variable is a string		
