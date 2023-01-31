@@ -3,9 +3,9 @@
 
 /*
  ini_file_class.hpp
- Release: 0.3, date: 29.01.2023
- 
- * Copyright 2021
+ Release: 0.3, date: 31.01.2023
+  
+ * Copyright 2023
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 
 #define _DEVSTAGE	// we are in development-stage and get some more infos on screen
 
@@ -46,11 +47,14 @@ bool set_value(const std::string parameter, bool *value);	// set a string-value
 
 std::string get_not_found_marker() {return not_found_in_ini_file;};			// get the string which marks that we did not find a value for our parameter
 
+unsigned int get_constructor_return_code () {return inifile_return_code;};	// we can get return_code of constructor with this method
+const std::string empty_variable = "<EMPTY VARIABLE>";	// this is default for string-values in our map called var_map
+
 protected:	// the following values can be used in derived classes but only internally
 bool error_status_flag = true;		// flags the error-status of the ini-object: true = we have an error
 bool warning_status_flag = true;	// flags the warning-status of the ini-objeect: true = we have a warning
 std::string ini_file_name;			// the name of the ini-file we will read from
-unsigned int inifile_return_code;			// a return-code to handle errors in the constructor
+unsigned int inifile_return_code;	// a return-code to handle errors in the constructor
 
 enum class variable_type {	// this types of variable can we have in our ini-file:
 	is_string,			// variable is a string		
@@ -72,7 +76,6 @@ struct variable_struct {		// this struct holds 1 variable
 std::map<std::string, std::string> ini_file_content;	// this map will contain all valid lines from ini-file: first of the map is allways the parameter and second is allways the value found in the ini-file (this is also allways a string)
 std::map<const std::string, std::unique_ptr<variable_struct>> var_map;	// the map which contains the variables and and a struct which holds the value
 std::map<const std::string, std::unique_ptr<variable_struct>>::iterator var_map_iterator;	// an iterator over the map 
-const std::string empty_variable = "<EMPTY VARIABLE>";	// this is default for string-values in our map called var_map
 
 bool valid_ini_data_flag = false;	// flags if we have valid ini-data or not default is false
 std::string temp_string_buffer;
