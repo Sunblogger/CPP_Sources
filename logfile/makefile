@@ -1,6 +1,6 @@
 # Makefile for logfile_example and logfile_example_threads
-# Date: 30.01.2023
-CXXFLAGS = -I/home/pi/cpp_sources/logfile -Wall -Wextra -std=c++2a
+# Date: 26.03.2023
+CXXFLAGS = -I$(HOME)/cpp_sources/logfile -Wall -Wextra -std=c++2a
 
 all: logfile_example logfile_example_thread logfile.o logfile_thread.o logfile_example_thread.o
 
