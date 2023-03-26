@@ -1,8 +1,8 @@
 /*
  * inifile_example.cpp
- * Date: 29.01.2023
+ * Date: 26.03.2023
  * 
- * Copyright 2021  
+ * Copyright 2023  
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
@@ -30,10 +30,10 @@ class example_ini_file_class : public ini_file_class {
 public:
 example_ini_file_class(const std::string file_name) : 	ini_file_class(file_name) {	// we call constructor of base-class
 															setup_variable_map(); 		// we setup a map of variables specific for our program
-															return_code = read_ini_file(); 	// we try to read the ini-file for our program
-															if (0 == return_code) {
-																return_code = fill_variables(); // we fill our map with content from our ini-file
-																if (0 != return_code) std::cout << "Error: filling variables into var_map failed!" << std::endl;
+															inifile_return_code = read_ini_file(); 	// we try to read the ini-file for our program
+															if (0 == inifile_return_code) {
+																inifile_return_code = fill_variables(); // we fill our map with content from our ini-file
+																if (0 != inifile_return_code) std::cout << "Error: filling variables into var_map failed!" << std::endl;
 															} else std::cout << "Error: reading ini file failed!" << std::endl;
 														};
 
