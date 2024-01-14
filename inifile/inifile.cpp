@@ -1,6 +1,6 @@
 /*
  ini_file_class.cpp
- Release: 0.2, date: 13.04.2021
+ Release: 0.3, date: 14.01.2024
  
  * Copyright 2021
  * 
@@ -30,20 +30,24 @@
 unsigned int ini_file_class::read_ini_file() {
 std::ifstream ini_file;		// the filestream we will read all data from
 std::string ini_file_line;
-std::size_t position;
+std::size_t comment_position, 			// position of marker for comment
+			equal_position,				// positoin of equal sign '='
+			carriage_return_position;	// position of carriage-return '\r'
 std::string variable_name, variable_content;
 
 	ini_file.open(ini_file_name);	
 	if (ini_file.is_open() == true) {	// we can read file
 		while (ini_file.eof() == false) {
 			getline(ini_file, ini_file_line);
-			position = ini_file_line.find('#');
-			if ((position != 0) && (ini_file_line.length() > 0) ) {	// we do not have a comment-marker in first column of the line and line is not empty
+			comment_position = ini_file_line.find('#');
+			carriage_return_position = ini_file_line.find('\r');
+			if ((comment_position != 0) && (ini_file_line.length() > 0) ) {	// we do not have a comment-marker in first column of the line and line is not empty
 				// now we separate the name of the variable from the content	
-				position = ini_file_line.find('=');
-				if ((position > 0) && (position != std::string::npos)){
-					variable_name = ini_file_line.substr(0, position);
-					variable_content = ini_file_line.substr(position + 1, ini_file_line.length());
+				equal_position = ini_file_line.find('=');
+				if ((equal_position > 0) && (equal_position != std::string::npos)){
+					if (0 != carriage_return_position) ini_file_line.resize(carriage_return_position); 	// if we have a carriage-return '\r' we have to shorten the string by 1 charackter
+					variable_name = ini_file_line.substr(0, equal_position);
+					variable_content = ini_file_line.substr(equal_position + 1, ini_file_line.length());
 					ini_file_content.insert(make_pair(variable_name, variable_content));	// we fill our map with name of variable and the content in ini-file
 				}
 			}
@@ -80,10 +84,6 @@ for (var_map_iterator = var_map.begin(); var_map_iterator != var_map.end(); ++va
 			case variable_type::is_string: temp_var->var_string = variable_content; break;
 			case variable_type::is_unsigned_int: try {
 														temp_var->var_uint = std::stoi(variable_content, &position, 10);	// we convert the string to an unsigned integer
-														if (position != variable_content.length()) {
-															std::cout << "Error in ini-file: value " << variable_content << " does contain invalid charackters in parameter " << variable_to_search_for << std::endl;
-															leave_for_loop_flag = true;
-														}
 													} catch (const std::invalid_argument &acdc) {
 														std::cout << "Error in ini-file: value " << variable_content << " is not allowed for parameter " << variable_to_search_for <<std::endl;
 														temp_var->var_int= 0;
@@ -97,10 +97,6 @@ for (var_map_iterator = var_map.begin(); var_map_iterator != var_map.end(); ++va
 													 break;
 			case variable_type::is_signed_int: try {
 														temp_var->var_int = std::stoi(variable_content, &position, 10);
-														if (position != variable_content.length()) {
-															std::cout << "Error in ini-file: value " << variable_content << " does contain invalid charackters in parameter " << variable_to_search_for <<std::endl;
-															leave_for_loop_flag = true;
-														}
 													} catch (const std::invalid_argument &acdc) {
 														std::cout << "Error in ini-file: value " << variable_content << " is not allowed for parameter " << variable_to_search_for <<std::endl;
 														temp_var->var_int= 0;
@@ -114,10 +110,6 @@ for (var_map_iterator = var_map.begin(); var_map_iterator != var_map.end(); ++va
 													 break;
 			case variable_type::is_double: try {
 														temp_var->var_double = std::stold(variable_content, &position);
-														if (position != variable_content.length()) {
-															std::cout << "Error in ini-file: value " << variable_content << " does contain invalid charackters in parameter " << variable_to_search_for <<std::endl;
-															leave_for_loop_flag = true;
-														}
 													} catch (const std::invalid_argument &acdc) {
 														std::cout << "Error in ini-file: value " << variable_content << " is not allowed for parameter " << variable_to_search_for <<std::endl;
 														temp_var->var_double= 0;
